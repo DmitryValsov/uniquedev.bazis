@@ -7,12 +7,19 @@ var connectionString = builder.Configuration.GetConnectionString("motorsContextC
 
 builder.Services.AddDbContext<motorsContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<motorsUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<motorsContext>();
+builder.Services.AddDefaultIdentity<motorsUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<motorsContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 //Подлкючение поддержки razor pages
 builder.Services.AddRazorPages();
+//Настройка паролей 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequiredUniqueChars = 0;
+});
 
 var app = builder.Build();
 
@@ -34,6 +41,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+;
 
 //Подлкючение поддержки razor pages
 app.MapRazorPages();

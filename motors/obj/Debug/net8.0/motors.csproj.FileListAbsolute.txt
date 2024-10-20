@@ -264,3 +264,4 @@
 /Users/tuckyoy/RiderProjects/motors/motors/obj/Debug/net8.0/motors.genruntimeconfig.cache
 /Users/tuckyoy/RiderProjects/motors/motors/obj/Debug/net8.0/ref/motors.dll
 /Users/tuckyoy/RiderProjects/motors/motors/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/tuckyoy/RiderProjects/motors/motors/obj/Debug/net8.0/motors.sourcelink.json
