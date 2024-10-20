@@ -6,36 +6,42 @@
     Layout = "~/Areas/Identity/Pages/_AuthLayout.cshtml";
 }
 
-<div class="row justify-content-center">
-    <div class="col-10">
-        <section>
-            <form id="account" method="post">
-                <h2>Welcome back!</h2>
-                <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                    <label asp-for="Input.Email" class="form-label">Email</label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div style="display: none;" class="form-floating mb-3">
-                    <input value="Admin123!" asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="checkbox mb-3">
-                    <label asp-for="Input.RememberMe" class="form-label">
-                        <input class="form-check-input" asp-for="Input.RememberMe" />
-                        @Html.DisplayNameFor(m => m.Input.RememberMe)
-                    </label>
-                </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-                </div>
-            </form>
-        </section>
-    </div>
+
+<div id="login-container" style="margin-top: 50px;">
+    <h2 id="title">Введите Email</h2>
+    <p id="subtitle">чтобы войти или стать клиентом BAZIS MOTORS</p>
+    <form id="account" method="post">
+        <input asp-for="Input.Email" type="email" id="phone-input">
+        <p id="subtitle">На указанный номер придет SMS с кодом для подтверждения входа.</p>
+    
+        <div style="display: none;" class="form-floating mb-3">
+            <input value="Admin123!" asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+            <label asp-for="Input.Password" class="form-label">Password</label>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+    
+        <button id="submit-button" type="submit">Получить код</button>
+    </form>
+    <p id="consent-text" style="text-align: left">
+        Нажимая на кнопку «Получить код», я даю согласие на
+        <a href="index_pd_bm1_personal%20data.html" target="_blank">
+            обработку персональных данных
+        </a>
+    </p>
+    <p id="consent-text" style="text-align: left">
+        <a href="/Identity/Account/Register">
+        Не зарегестрированы?
+        </a>
+    </p>
 </div>
+
+
+
+
+
+
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

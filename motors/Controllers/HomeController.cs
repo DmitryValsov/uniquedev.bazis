@@ -23,6 +23,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewData["UserID"] = _userManager.GetUserId(this.User);
+        //ViewData["UserName"] = _userManager.Get(this.User);
         return View();
     }
 

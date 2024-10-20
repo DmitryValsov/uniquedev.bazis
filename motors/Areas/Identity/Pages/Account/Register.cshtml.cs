@@ -76,6 +76,7 @@ namespace motors.Areas.Identity.Pages.Account
             [Display(Name = "First Name")]
             public string FirstName { get; set; }
             
+            
             //[Required]
             [DataType(DataType.Text)]
             [Display(Name = "Last Name")]
